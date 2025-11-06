@@ -1,0 +1,25 @@
+# Cache and models
+.cache/
+lora_models/
+__pycache__/
+*.pyc
+*.pyo
+
+# Training logs
+training_log.txt
+train/training_log.txt
+
+# Downloaded datasets
+downloaded_datasets/
+
+# Large training data files (will download fresh on RunPod)
+prometheus_formatted_data/*.json
+training_data/*.json
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
