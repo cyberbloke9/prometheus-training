@@ -11,3 +11,5 @@ sentencepiece
 py7zr
 scipy
 optimum
+protobuf
+wandb
