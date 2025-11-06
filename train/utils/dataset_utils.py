@@ -18,8 +18,7 @@ DATASET_PREPROC = {
     "alpaca_dataset": partial(get_alpaca_dataset, max_words=2048),
     "grammar_dataset": get_grammar_dataset,
     "samsum_dataset": get_samsum_dataset,
-    # "feedback_collection_dataset": partial(get_feedback_collection_dataset, max_words=2048)
-    "feedback_collection_dataset": get_feedback_collection_dataset,
+    "feedback_collection_dataset": partial(get_feedback_collection_dataset, max_words=2048),
 }
 
 
