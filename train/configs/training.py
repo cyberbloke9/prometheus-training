@@ -32,6 +32,7 @@ class train_config:
     quantization: bool = True
     one_gpu: bool = False
     save_model: bool = True
+    save_steps: int = 500 # Save checkpoint every N steps
     dist_checkpoint_root_folder: str="" # will be used if using FSDP
     dist_checkpoint_folder: str="fine-tuned" # will be used if using FSDP
     scheduler: str="cosine" # lr scheduler type ["cosine", "step"]

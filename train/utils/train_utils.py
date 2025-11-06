@@ -111,6 +111,15 @@ def train(model, train_dataloader,eval_dataloader, tokenizer, optimizer, lr_sche
                         optimizer.zero_grad()
                         if train_config.scheduler == "cosine":
                             lr_scheduler.step()
+
+                # Save checkpoint every save_steps
+                if train_config.save_model and hasattr(train_config, 'save_steps') and train_config.save_steps > 0:
+                    if (step + 1) % train_config.save_steps == 0:
+                        if train_config.use_peft:
+                            checkpoint_dir = f"{train_config.output_dir}/checkpoint-epoch{epoch}-step{step+1}"
+                            model.save_pretrained(checkpoint_dir)
+                            print(f"\n💾 Checkpoint saved: {checkpoint_dir}")
+
                 if train_config.enable_fsdp:
                     # if rank==0:       
                     #     print(f"\n step {step} is completed and loss is {loss.detach().float()}")
