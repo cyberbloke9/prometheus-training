@@ -29,7 +29,7 @@ class alpaca_dataset:
 
 @dataclass
 class feedback_collection_dataset:
-    dataset: str = "feedback_collection"
+    dataset: str = "feedback_collection_dataset"
     train_split: str = "train"
     test_split: str = "val"
     data_path: str = "/workspace/prometheus/prometheus_formatted_data/prometheus_train.json"

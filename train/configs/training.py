@@ -23,7 +23,7 @@ class train_config:
     use_fp16: bool=False
     mixed_precision: bool=True
     val_batch_size: int=1
-    dataset = "feedback_collection"
+    dataset = "feedback_collection_dataset"
     peft_method: str = "lora" # None , llama_adapter, prefix
     use_peft: bool=True
     output_dir: str = "/workspace/prometheus/lora_models"
