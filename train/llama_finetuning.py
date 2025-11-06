@@ -78,11 +78,15 @@ def main(**kwargs):
                 experiment_name = f"{train_config.model_name}/{train_config.dataset}"
             else:
                 experiment_name = train_config.experiment_name
-            run_wandb = wandb.init(
-                    entity="jshin49",
-                    project="llama-ft",
-                    name=experiment_name
-                )
+            # Check if WandB is disabled via environment variable
+            if os.environ.get("WANDB_MODE") == "disabled":
+                run_wandb = None
+            else:
+                run_wandb = wandb.init(
+                        entity="jshin49",
+                        project="llama-ft",
+                        name=experiment_name
+                    )
         else:
             run_wandb=None
     else:
@@ -90,11 +94,15 @@ def main(**kwargs):
             experiment_name = f"{train_config.model_name}/{train_config.dataset}"
         else:
             experiment_name = train_config.experiment_name
-        run_wandb = wandb.init(
-                    entity="jshin49",
-                    project="llama-ft",
-                    name=experiment_name
-                )
+        # Check if WandB is disabled via environment variable
+        if os.environ.get("WANDB_MODE") == "disabled":
+            run_wandb = None
+        else:
+            run_wandb = wandb.init(
+                        entity="jshin49",
+                        project="llama-ft",
+                        name=experiment_name
+                    )
     if torch.distributed.is_initialized():
         torch.cuda.set_device(local_rank)
         clear_gpu_cache(local_rank)
